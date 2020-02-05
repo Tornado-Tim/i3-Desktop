@@ -11,4 +11,4 @@ if sp status | grep 'Paused' > /dev/null; then
 else
     printf '\xef\x81\x8b ' # fa-play
 fi
-/home/tim/.spotify-i3/sp current-oneline
+$HOME/.spotify-i3/sp current-oneline
