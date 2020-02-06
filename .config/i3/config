@@ -13,6 +13,7 @@ set $mod Mod4
 
 # Compton
 # seq 0 3 | xargs -l1 -I@ compton -b -d :0.@  # Multihead support
+exec --no-startup gnome-screensaver
 
 exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config $HOME/.config/compton/compton.conf -b
 #Gnome3 Mods
