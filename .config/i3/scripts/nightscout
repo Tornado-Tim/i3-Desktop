@@ -1,0 +1,45 @@
+#!/bin/bash
+data="$(curl https://timgunn.diawatch.org/api/v1/entries/current.json 2>/dev/null)"
+BG=$(echo "$data" | jq -r '.[] | "\(.sgv)"')
+DIR=$(echo "$data" | jq -r '.[] | "\(.direction)"')
+DELTA=$(echo "$data" | jq -r '.[] | "\(.delta)"')
+ trend="?"
+
+ case $DIR in
+
+  DoubleUp)
+    trend="↑↑"
+    ;;
+  SingleUp)
+    trend="↑"
+    ;;
+  FortyFiveUp)
+    trend="↗"
+    ;;
+  Flat)
+    trend="→"
+    ;;
+  FortyFiveDown)
+    trend="↘"
+    ;;
+  SingleDown)
+    trend="↓"
+    ;;
+  DoubleDown)
+    trend="↓↓"
+    ;;
+ esac
+
+ #if [ $previous_entry_mgdl -gt $latest_entry_mgdl ]
+# then
+#	delta=$(( $previous_entry_mgdl - $latest_entry_mgdl ))
+ #else
+ #	if [ $latest_entry_mgdl == $previous_entry_mgdl ]
+ #	then
+ #		delta = 0
+ #	else
+ #		delta=+$(( $latest_entry_mgdl - $previous_entry_mgdl ))
+ #	fi
+ #fi
+
+ echo "$BG $trend (${DELTA%.*})";
