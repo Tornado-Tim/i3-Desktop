@@ -187,7 +187,7 @@ for_window [class="Slack"] move to workspace $ws2, workspace --no-auto-back-and-
 for_window [class="Evolution"] move to workspace $ws3, workspace --no-auto-back-and-forth $ws3
 for_window [class="Google-chrome"] move to workspace $ws1, workspace --no-auto-back-and-forth $ws1
 for_window [class="Spotify"] move to workspace $ws4, workspace --no-auto-back-and-forth $ws4
-for_window [class="discord"] move to workspace $w12, workspace --no-auto-back-and-forth $ws12
+for_window [class="discord"] move to workspace $ws12, workspace --no-auto-back-and-forth $ws12
 for_window [class="Gnome-control-center"] floating enable
 
 
@@ -291,7 +291,7 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym Ctrl+Esc mode "$mode_system"
+bindsym $mod+F1 mode "$mode_system"
 
 
 # move focused workspace between monitors
